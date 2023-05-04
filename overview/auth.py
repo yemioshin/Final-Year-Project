@@ -41,24 +41,26 @@ def sign_up():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        user = User.query.filter_by(email=email).first()
-        if user:
-            flash('Email already exists.', category='error')
         if len(email) < 4:
-            flash('Email must be longer than 3 characters.', category='error')
+            flash('Email must be greater than 3 characters.', 'danger')
         elif len(first_name) < 2:
-            flash('First name must be longer than 1 character.', category='error')
+            flash('First name must be greater than 1 character.', 'danger')
         elif password1 != password2:
-            flash('The passwords do not match.', category='error')
+            flash('Passwords don\'t match.', 'danger')
         elif len(password1) < 7:
-            flash('The password must be at least than 7 characters.', category='error')
+            flash('Password must be at least 7 characters.', 'danger')
         else:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(
-                password1, method='sha256'))
+            # Check if the email already exists in the database
+            existing_user = User.query.filter_by(email=email).first()
+            if existing_user:
+                flash('Email address already exists. Please log in or use another email address.', 'danger')
+                return redirect(url_for('auth.sign_up'))
+
+            # Create a new user
+            new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
-            flash('Account Created.', category='success')
+            flash('Account created!', 'success')
             return redirect(url_for('views.home'))
             # add user to database
             
