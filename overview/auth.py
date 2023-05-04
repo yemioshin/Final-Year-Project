@@ -33,8 +33,8 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
-def sign_up():
+@auth.route('/register', methods=['GET', 'POST'])
+def register():
     if request.method == 'POST':
         email = request.form.get('email')
         first_name = request.form.get('first_name')
@@ -54,7 +54,7 @@ def sign_up():
             existing_user = User.query.filter_by(email=email).first()
             if existing_user:
                 flash('Email address already exists. Please log in or use another email address.', 'danger')
-                return redirect(url_for('auth.sign_up'))
+                return redirect(url_for('auth.register'))
 
             # Create a new user
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256'))
@@ -65,4 +65,4 @@ def sign_up():
             # add user to database
             
 
-    return render_template("sign_up.html", user=current_user)
+    return render_template("register.html", user=current_user)
