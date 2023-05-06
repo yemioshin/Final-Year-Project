@@ -65,4 +65,4 @@ def register():
             # add user to database
             
 
-    return render_template("auth/egister.html", user=current_user)
+    return render_template("auth/register.html", user=current_user)
