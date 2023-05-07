@@ -21,13 +21,11 @@ def create_app():
 
     from .views import views
     from .auth import auth
-    from .projects import projects
 
-    app.register_blueprint(projects, url_prefix='/projects')
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import User, Note
+    from .models import User
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

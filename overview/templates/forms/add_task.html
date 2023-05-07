@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% block content %}
+<h1>{{title}}</h1>
+    <form id="new-task-form" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }} 
+            {{ form.title(autocomplete="off") }} 
+            {% for error in form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span> 
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.genre.label }} 
+            {{ form.genre(autocomplete="off") }} 
+            {% for error in form.genre.errors %}
+                <span style="color: red;">[{{ error }}]</span> 
+            {% endfor %}
+        </p>
+        <div id="task-genres" class="row">
+            {% for genre in genres %}
+                <div class="chip valign-wrapper task-genre waves-effect waves-light tooltipped" data-position="bottom" data-tooltip="Add Genre" onclick="addGenre()">
+                    {{genre}}
+                </div>
+            {% endfor %}
+        </div>
+        <button class="btn waves-effect waves-light float-right add-button-background" type="submit" name="action">
+            {{title}}<i class="material-icons right">note_add</i>
+        </button>
+    </form>
+{% endblock %}
+
+{% block scriptcustom %}
+    <script src="{{ url_for('static', filename='js/tasks.js')}}"></script>
+{{ super() }}{% endblock %}

@@ -1,42 +1,306 @@
-/* Side Navbar */
-.sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #343a40; /* Match the navbar background color */
-  }
-  
-  .navbar .navbar-nav {
-    margin-left: 250px; /* Adjust the left margin to accommodate the sidebar */
-  }
-  
+@import url('https://fonts.googleapis.com/css?family=Faster+One:100,200,300,400');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-  .form-control-primary {
-    margin: 10px;
-    opacity: 0.2;
-    border-radius: 2px;
-  }
+/*-------- Colors ------------*/
 
-  .sidebar {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    z-index: 100;
-    padding: 70px 0 0 10px;
-    border-right: 1px solid #d3d3d3;
-  }
-  
-  .left-sidebar {
-    position: sticky;
-    top:0;
-    height: calc(100vh - 70px)
-  }
-  
-  .sidebar-nav li .nav-link {
-    color: #333;
+.color-header {
+    background-color: #f0f0f0;
+}
+
+.color-panel {
+    background-color: #f8f8f8;
+    border-top: 3px solid #4066b2;
+}
+
+.color-background {
+    background-color: #ffffff;
+}
+
+.add-button-background {
+    background-color: #9F7000;
+}
+
+.add-button-background:hover {
+    background-color: #523a00;
+}
+
+.txt-first {
+    color: #ffffff;
+}
+
+.txt-second {
+    color: #7b5b26;
+}
+
+/*------ Standards -----------*/
+html{
+    /*font-family: 'Open Sans', sans-serif;*/
+}
+
+.overflow-auto {
+    overflow: auto
+}
+
+.float-right {
+    float: right;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+}
+
+/*------- header -----------*/
+
+nav .header-txt {
+    font-family: 'Faster One', cursive;
+    font-size: 5.0rem;
+}
+
+nav .brand-logo,
+nav ul a,
+nav a {
+    color: #003399;
+}
+
+#nav-mobile span {
+    position: relative;
+    bottom: -15px;
+    font-weight: 600;
+}
+
+a.brand-logo {
+    width: fit-content;
+}
+#mobile-demo li a{
+    position: relative;
+    bottom: -15px;
+    font-weight: 600;
+    color: #003399;
+}
+
+#mobile-demo .sidenav-logo{
+    height: 60px
+}
+
+#mobile-demo .sidenav-logo a{
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+
+/*--------- dashboard -----------------*/
+
+#project_count,
+#money_count,
+#money_average {
+    color: #003399;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 10px
+}
+
+.card-sub-title {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: lighter;
+}
+
+
+/*--------- projects -----------------*/
+
+.header-button-title {
+    margin-top: 20px;
+}
+
+.header-button-title #page-title {
+    margin: 0;
+    padding-top: 17px;
+}
+
+.project {
+    margin-bottom: 1.5rem;
+}
+
+.project a {
+    color: #000000;
+    width: 100%;
+    line-height: 5rem;
+    height: 5rem;
+}
+
+.project .btn-large:hover {
+    background-color: #00309f;
+    color: #fff;
+    border-top: 3px solid #b3b6bb;
+}
+
+
+/*--------- project tasks -----------------*/
+
+#project-action-buttons .btn-floating.btn-large {
+    position: relative;
+    float: right;
+    margin-left: 26px;
+}
+
+#stopwatch {
+    margin-bottom: 0;
+}
+#stopwatch iframe{
+    border: 0px;
+    height: 140px
+}
+
+
+.collapsible-body{
+    overflow: auto;
+}
+
+#tasks .card-content {
+    padding: 16px 24px;
+}
+
+#tasks .card-action {
+    padding: 8px 24px;
+}
+
+#tasks .chip {
+    margin-bottom: 0px;
+}
+
+#tasks a {
+    line-height: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    margin: 0 10px;
+    position: relative;
+    float: right;
+}
+
+#tasks .task-completed-form button {
+    position: relative;
+    float: right;
+}
+
+.task-done {
+    display: inline-block;
+    text-decoration: line-through;
+}
+
+#tasks .task-completed-form {
+    margin-bottom: 0px;
+    position: relative;
+    float: right;
+}
+
+#tasks .task-completed-form .input-field.inline {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#tasks .task-completed-form .input-field .prefix {
+    top: 0rem;
+    font-size: 1.75rem;
+    width: 1.75rem;
+}
+
+#tasks .task-completed-form label {
+    height: 1px;
+    line-height: 20px;
+    margin-left: 25px;
+    width: 100px;
+    top: -25px;
+    font-size: 0.9rem;
+}
+
+#tasks .task-completed-form .input-field>label:not(.label-icon).active {
+    transform: translateY(8px) scale(0.8);
+}
+
+#tasks .task-completed-form .task-item {
+    margin-bottom: 0px;
+    line-height: 20px;
+    height: 20px;
+    margin-left: 25px;
+    width: 70px;
+}
+
+.task-completed-form #submit {
+    line-height: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    margin: 0 10px;
+}
+
+.min-to-hr {
+    position: absolute;
+    font-size: 0.75rem;
+    top: 23px;
+    left: 24px;
+    color: #9e9e9e;
+}
+
+/*-----------forms----------------*/
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #9F7000;
+    -webkit-box-shadow: 0 1px 0 0 #9F7000;
+    box-shadow: 0 1px 0 0 #9F7000;
+}
+
+.input-field .prefix.active {
+    color: #9F7000;
+}
+
+.material-tooltip {
+    border-radius: 4px;
+    padding: 4px 8px;
     font-weight: 500;
-  }
+    line-height: 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+    -webkit-font-smoothing: antialiased;
+    min-height: auto;
+}
+
+/*----MOBILE SCREEN-----*/
+
+@media only screen and (max-width: 601px) {
+    /*------- header -----------*/
+    nav,
+    nav .nav-wrapper i,
+    nav a.sidenav-trigger,
+    nav a.sidenav-trigger i {
+        height: 80px;
+        line-height: 80px;
+    }
+    
+    /*--------- project tasks -----------------*/
+    .card .card-content p {
+        margin-bottom: 2rem;
+    }
+    #tasks .card-content {
+        overflow-y: hidden;
+    }
+}
+
+
+/*---ERROR PAGES---*/
+#error-img{
+    max-width: 700px;
+}

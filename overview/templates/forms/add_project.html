@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.number.label }}
+            {{ form.number(autocomplete="off") }}
+            {% for error in form.number.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %} 
+        </p>
+        <p>
+            {{ form.name.label }}
+            {{ form.name(autocomplete="off") }}
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %} 
+        </p>
+        <p>
+            {{ form.value.label }}
+            {{ form.value(autocomplete="off", type="number") }}
+            {% for error in form.value.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %} 
+        </p>
+        <p>
+            {{ form.client.label }}
+            {{ form.client(autocomplete="off") }}
+            {% for error in form.client.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %} 
+        </p>
+        <button class="btn waves-effect waves-light float-right add-button-background" type="submit" name="action">
+            {{title}}<i class="material-icons right">create_new_folder</i>
+        </button>
+    </form>
+
+
+{% endblock %}

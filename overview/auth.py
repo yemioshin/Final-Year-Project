@@ -38,6 +38,7 @@ def register():
     if request.method == 'POST':
         email = request.form.get('email')
         first_name = request.form.get('first_name')
+        username = request.form.get('username')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -55,9 +56,14 @@ def register():
             if existing_user:
                 flash('Email address already exists. Please log in or use another email address.', 'danger')
                 return redirect(url_for('auth.register'))
+            
+            existing_user = User.query.filter_by(username=username).first()
+            if existing_user:
+                flash('Username address already exists. Please log in or use another username.', 'danger')
+                return redirect(url_for('auth.register'))
 
             # Create a new user
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256'))
+            new_user = User(email=email, first_name=first_name, username=username, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             flash('Account created!', 'success')
