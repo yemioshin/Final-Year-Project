@@ -19,9 +19,9 @@
             {% endfor %} 
         </p>
         <p>
-            {{ form.value.label }}
-            {{ form.value(autocomplete="off", type="number") }}
-            {% for error in form.value.errors %}
+            {{ form.time.label }}
+            {{ form.time(autocomplete="off", type="number") }}
+            {% for error in form.time.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %} 
         </p>

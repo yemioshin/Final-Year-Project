@@ -18,7 +18,7 @@ class Project(db.Model):
     number = db.Column(db.String(140))
     name = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    value = db.Column(db.Integer, nullable=False)
+    time = db.Column(db.Integer, nullable=False)
     completed = db.Column(db.Boolean, default=False, nullable=False)
     subject = db.Column(db.String(140))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

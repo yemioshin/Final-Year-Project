@@ -13,7 +13,7 @@ class ProjectForm(FlaskForm):
         'Project Number', validators=[DataRequired(), Length(min=1, max=139)])
     name = StringField(
         'Name', validators=[DataRequired(), Length(min=1, max=139)])
-    value = IntegerField('Estimated Time', validators=[
+    time = IntegerField('Estimated Time', validators=[
         DataRequired(), 
         NumberRange(min=1, max=1000000, message='Estimated Time must be greater than or equal to 1')])
     timestamp = DateField('Date Recieved', format='%d/%m/%y')
@@ -40,7 +40,7 @@ class InlineButtonWidget(object):
     def __call__(self, field, **kwargs):
         kwargs.setdefault('id', field.id)
         kwargs.setdefault('type', self.input_type)
-        kwargs.setdefault('value', field.label.text)
+        kwargs.setdefault('time', field.label.text)
         return Markup(
             '<button %s><i class="material-icons">done</i></button>' % 
             self.html_params(name=field.name, **kwargs))

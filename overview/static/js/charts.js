@@ -26,7 +26,7 @@ function show_project_numbers(ndx) {
     var projectNumbers = ndx.groupAll().reduce(
         function(p, v) {
             p.count++;
-            p.total += v.project_value;
+            p.total += v.project_time;
             p.average = p.total / p.count;
             return p;
         },
@@ -37,7 +37,7 @@ function show_project_numbers(ndx) {
                 p.average = 0;
             }
             else {
-                p.total -= v.project_value;
+                p.total -= v.project_time;
                 p.average = p.total / p.count;
             }
             return p;
@@ -58,7 +58,7 @@ function show_project_numbers(ndx) {
         })
         .group(projectNumbers);
     
-    dc.numberDisplay("#money_count")
+    dc.numberDisplay("#time_count")
         .valueAccessor(function(d) {
             if (d.count == 0) {
                 return 0;
@@ -69,7 +69,7 @@ function show_project_numbers(ndx) {
         })
         .group(projectNumbers);
     
-    dc.numberDisplay("#money_average")
+    dc.numberDisplay("#time_average")
         .valueAccessor(function(d) {
             if (d.count == 0) {
                 return 0;

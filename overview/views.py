@@ -36,7 +36,7 @@ def add_project():
         project = Project(
             number=form.number.data,
             name=form.name.data.lower(),
-            value=form.value.data,
+            time=form.time.data,
             subject=form.subject.data,
             user=current_user)
         db.session.add(project)
@@ -73,7 +73,7 @@ def edit_project(projectno):
     if form.validate_on_submit():
         job.number = form.number.data
         job.name = form.name.data.lower()
-        job.value = form.value.data
+        job.time = form.time.data
         job.subject = form.subject.data
         db.session.commit()
         flash('Your project has been updated!')
@@ -81,7 +81,7 @@ def edit_project(projectno):
     elif request.method == 'GET':
         form.number.data = job.number
         form.name.data = job.name
-        form.value.data = job.value
+        form.time.data = job.time
         form.subject.data = job.subject
     return render_template(
         'forms/add_project.html', title="Edit Project", form=form)
@@ -266,7 +266,7 @@ def user_data():
             'user': job.user.username,
             'project_title': job.name,
             'project_id': job.id,
-            'project_value': job.value,
+            'project_time': job.time,
             'project_subject': job.subject,
             'project_completed': sum([job.completed]),
             'project_recieved': job.timestamp,
