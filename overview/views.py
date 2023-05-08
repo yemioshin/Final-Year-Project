@@ -25,7 +25,10 @@ def view_projects():
     jobs = Project.query.filter_by(user_id=current_user.id)
     return render_template('projects.html', jobs=jobs)
 
-
+@views.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html', user=current_user)
 
 # ------------------------------------------------------- NEW PROJECT
 @views.route('/add_project', methods=['GET', 'POST'])
@@ -278,20 +281,7 @@ def user_data():
 
     return jsonify(data)
 
-@views.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html', user=current_user)
 
-@views.route('/calendar')
-def calendar():
-    return render_template('calendar.html', user=current_user)
 
-@views.route('/habit_tracker')
-def habit_tracker():
-    return render_template('habit_tracker.html', user=current_user)
-
-@views.route('/profile')
-def profile():
-    return render_template('profile.html', user=current_user)
 
 

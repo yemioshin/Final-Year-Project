@@ -48,21 +48,21 @@ html{
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
 
 /*------- header -----------*/
 
 nav .header-txt {
-    font-family: 'Faster One', cursive;
+    font-family: 'Roboto', sans-serif;
     font-size: 5.0rem;
 }
 
 nav .brand-logo,
 nav ul a,
 nav a {
-    color: #003399;
+    color: #1D1856;
 }
 
 #nav-mobile span {
@@ -78,7 +78,7 @@ a.brand-logo {
     position: relative;
     bottom: -15px;
     font-weight: 600;
-    color: #003399;
+    color: #1D1856;
 }
 
 #mobile-demo .sidenav-logo{
@@ -96,7 +96,7 @@ a.brand-logo {
 #project_count,
 #money_count,
 #money_average {
-    color: #003399;
+    color: #1D1856;
     font-weight: 700;
     font-size: 1.6rem;
     margin-top: 10px
