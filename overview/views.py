@@ -37,7 +37,7 @@ def add_project():
             number=form.number.data,
             name=form.name.data.lower(),
             value=form.value.data,
-            client=form.client.data,
+            subject=form.subject.data,
             user=current_user)
         db.session.add(project)
         db.session.commit()
@@ -74,7 +74,7 @@ def edit_project(projectno):
         job.number = form.number.data
         job.name = form.name.data.lower()
         job.value = form.value.data
-        job.client = form.client.data
+        job.subject = form.subject.data
         db.session.commit()
         flash('Your project has been updated!')
         return redirect(url_for('views.view_project_tasks', projectno=projectno))
@@ -82,7 +82,7 @@ def edit_project(projectno):
         form.number.data = job.number
         form.name.data = job.name
         form.value.data = job.value
-        form.client.data = job.client
+        form.subject.data = job.subject
     return render_template(
         'forms/add_project.html', title="Edit Project", form=form)
 
@@ -267,7 +267,7 @@ def user_data():
             'project_title': job.name,
             'project_id': job.id,
             'project_value': job.value,
-            'project_client': job.client,
+            'project_subject': job.subject,
             'project_completed': sum([job.completed]),
             'project_recieved': job.timestamp,
             'project_tasks_all': len(job.tasks.all()),

@@ -10,15 +10,15 @@ from wtforms.widgets.core import html_params
 
 class ProjectForm(FlaskForm):
     number = StringField(
-        'Number', validators=[DataRequired(), Length(min=1, max=139)])
+        'Project Number', validators=[DataRequired(), Length(min=1, max=139)])
     name = StringField(
         'Name', validators=[DataRequired(), Length(min=1, max=139)])
-    value = IntegerField('Value', validators=[
+    value = IntegerField('Estimated Time', validators=[
         DataRequired(), 
-        NumberRange(min=1, max=1000000, message='Value must be greater than or equal to 1')])
+        NumberRange(min=1, max=1000000, message='Estimated Time must be greater than or equal to 1')])
     timestamp = DateField('Date Recieved', format='%d/%m/%y')
-    client = StringField(
-        'Client', validators=[DataRequired(), Length(min=1, max=139)])
+    subject = StringField(
+        'Subject', validators=[DataRequired(), Length(min=1, max=139)])
     submit = SubmitField('Create Project')
 
 

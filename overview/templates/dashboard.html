@@ -1,10 +1,10 @@
 {% extends "base.html" %} 
 {% block content %}
-        <h1>{{ current_user.username|title }}'s Dashboard</h1>
+        <h1>{{ current_user.first_name|title }}'s Dashboard</h1>
         <hr> 
         {% for project in projects %}
         <div>
-            <p><b>{{ project.number}}</b> {{ project.name }} : {{ project.type }}. Value: €{{ project.value}}</p>
+            <p><b>{{ project.number}}</b> {{ project.name }} : {{ project.type }}. Value: {{ project.value}}</p>
         </div>
         {% endfor %}
         <div class="row">
@@ -24,9 +24,9 @@
             <div class="col s12 m6 l4">
               <div class="card color-panel">
                 <div class="card-content">
-                  <span class="card-title">Total Value</span>
+                  <span class="card-title">Total Estimated Time Spent</span>
                   <span class="card-sub-title">For All Projects</span>
-                  <p id="money_count">€</p>
+                  <p id="money_count">Minutes = </p>
                 </div>
               </div>
             </div>
@@ -35,20 +35,20 @@
             <div class="col s12 m6 l4">
               <div class="card color-panel">
                 <div class="card-content">
-                  <span class="card-title">Average Value</span>
+                  <span class="card-title">Average Estimated Time Spent</span>
                   <span class="card-sub-title">Of Project Undertaken</span>
-                  <p id="money_average">€</p>
+                  <p id="money_average">Minutes = </p>
                 </div>
               </div>
             </div>
             
-            <!--chart: clients-->
+            <!--chart: Subjects-->
             <div class="col s12">
               <div class="card color-panel">
-                <div id="client-card" class="card-content">
-                     <span class="card-title">Client Projects</span>
-                    <span class="card-sub-title">Showing Number of Projects Recieved</span>
-                  <p id="project-clients"></p>
+                <div id="subject-card" class="card-content">
+                     <span class="card-title">Subject Projects</span>
+                    <span class="card-sub-title">Showing Number of Projects by Subject recieved</span>
+                  <p id="project-subjects"></p>
                 </div>
               </div>
             </div>

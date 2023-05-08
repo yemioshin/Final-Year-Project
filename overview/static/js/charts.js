@@ -13,7 +13,7 @@ queue()
 function makeGraphs(error, projectData) {
     var ndx = crossfilter(projectData);
     show_project_numbers(ndx);
-    show_clients(ndx);
+    subjects(ndx);
     dc.renderAll();
 }
 
@@ -81,12 +81,12 @@ function show_project_numbers(ndx) {
         .group(projectNumbers);
 }
 
-/*---- Row Charts: Clients ----*/
-function show_clients(ndx) {
-    var dim = ndx.dimension(dc.pluck('project_client'));
+/*---- Row Charts: Subjects ----*/
+function subjects(ndx) {
+    var dim = ndx.dimension(dc.pluck('project_subject'));
     var group = dim.group();
 
-    dc.rowChart("#project-clients")
+    dc.rowChart("#project-subjects")
         .width(600)
         .height(330)
         .dimension(dim)

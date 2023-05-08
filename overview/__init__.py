@@ -4,7 +4,6 @@ from os import path
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from config import Config
-from flask_bootstrap import Bootstrap
 
 
 db = SQLAlchemy()
@@ -14,7 +13,6 @@ DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__)
-    Bootstrap(app)
     app.config.from_object(Config)
     db.init_app(app)
     migrate.init_app(app, db)
