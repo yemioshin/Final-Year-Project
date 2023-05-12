@@ -35,8 +35,7 @@ class Task(db.Model):
     genre = db.Column(db.String(50))
     duration = db.Column(db.Integer)
     completed = db.Column(db.Boolean, default=False, nullable=False)
-    project_id = db.Column(
-        db.Integer, db.ForeignKey('project.id'), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
 
     def __repr__(self):
         return '<Task {}>'.format(self.title)

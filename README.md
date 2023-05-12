@@ -16,7 +16,7 @@ Navigate into the project-tracker-flask directory:
 cd oo161
 
 Create a virtual environment:
-sudo pip install virtualenv
+virtualenv venv
 
 Ensure that your virtual environment runs Python 3.4:
 virtualenv -p /usr/bin/python3.4 venv
