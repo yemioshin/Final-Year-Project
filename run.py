@@ -6,7 +6,7 @@ app = create_app()
 
 if __name__ == '__main__':
     #app.run(debug=False, port=5002)
-    server_port = os.environ.get('PORT', '8080')
+    server_port = os.environ.get('PORT', '8081')
     app.run(debug=False, port=server_port, host='0.0.0.0')
 
     
