@@ -25,15 +25,15 @@ def view_projects():
 def dashboard():
     return render_template('dashboard.html', user=get_current_user())
 
-@views.route('/add_project', methods=['GET', 'POST'])
+@views.route('/addProject', methods=['GET', 'POST'])
 @login_required
-def add_project():
+def addProject():
     form = ProjectForm()
     if form.validate_on_submit():
         add_project_to_db(form)
         flash('Congratulations, you created a Project')
         return redirect(url_for('views.view_projects'))
-    return render_template('forms/add_project.html', title="Create Project", form=form)
+    return render_template('forms/addProject.html', title="Create Project", form=form)
 
 @views.route('/project/<projectno>')
 @login_required
@@ -64,7 +64,7 @@ def edit_project(projectno):
         form.name.data = job.name
         form.time.data = job.time
         form.subject.data = job.subject
-    return render_template('forms/add_project.html', title="Edit Project", form=form)
+    return render_template('forms/addProject.html', title="Edit Project", form=form)
 
 @views.route('/project/<int:projectno>/delete_project', methods=['GET', 'POST'])
 @login_required
@@ -78,9 +78,9 @@ def delete_project(projectno):
     return redirect(url_for('views.view_projects'))
 
 
-@views.route('/project/<int:projectno>/add_task', methods=['GET', 'POST'])
+@views.route('/project/<int:projectno>/addTask', methods=['GET', 'POST'])
 @login_required
-def add_task(projectno):
+def addTask(projectno):
     form = TaskForm()
     if form.validate_on_submit():
         add_task_to_db(form, projectno)
@@ -91,7 +91,7 @@ def add_task(projectno):
         job = get_project_by_id(projectno)
         if job.user_id == get_current_user().id:
             return render_template(
-                'forms/add_task.html',
+                'forms/addTask.html',
                 title='Create Task', form=form)
         else:
             flash(error_msg_403)
@@ -128,7 +128,7 @@ def edit_task(task_id, projectno):
         form.title.data = task.title
         form.genre.data = task.genre
     return render_template(
-        'forms/add_task.html', title='Edit Task', form=form, genres=genres)
+        'forms/addTask.html', title='Edit Task', form=form, genres=genres)
 
 
 @views.route(

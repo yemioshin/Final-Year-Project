@@ -23,7 +23,7 @@
         <div class="row">
             <h5>Add a task ...</h5>
         </div>
-        <a class="col s4 waves-effect waves-light btn-large add-button-background" href="{{ url_for('views.add_task', projectno=job.id) }}">
+        <a class="col s4 waves-effect waves-light btn-large add-button-background" href="{{ url_for('views.addTask', projectno=job.id) }}">
             <i class="material-icons right">add_circle_outline</i>add task
         </a>
         {% else %}
@@ -39,7 +39,7 @@
                 </li>
             </ul>
         </div>
-        <a class="col s4 waves-effect waves-light btn-large add-button-background" href="{{ url_for('views.add_task', projectno=job.id) }}">
+        <a class="col s4 waves-effect waves-light btn-large add-button-background" href="{{ url_for('views.addTask', projectno=job.id) }}">
             <i class="material-icons right">add_circle_outline</i>add task
         </a>
 

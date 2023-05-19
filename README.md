@@ -12,7 +12,7 @@ To run the code locally, please follow the instructions below. If you do not hav
 Git clone this repository to a local directory:
 git clone https://campus.cs.le.ac.uk/gitlab/ug_project/22-23/oo161.git
 
-Navigate into the project-tracker-flask directory:
+Navigate into the oo161 directory:
 cd oo161
 
 Create a virtual environment:
